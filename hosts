@@ -17,7 +17,19 @@
 
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 
-## [webservers]
+[centos_nodes]
+127.0.0.1 ansible_connection=local
+
+[ubuntu_nodes]
+40.127.165.24
+
+[ubuntu_nodes:vars]
+ansible_user=arvank01
+
+[linux_nodes:children]
+centos_nodes
+ubuntu_nodes
+
 ## alpha.example.org
 ## beta.example.org
 ## 192.168.1.100
